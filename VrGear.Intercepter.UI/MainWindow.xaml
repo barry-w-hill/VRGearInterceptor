@@ -1,0 +1,51 @@
+﻿<Window x:Class="VrGear.Intercepter.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" SizeToContent="WidthAndHeight"
+        Title="VR-Gear Intercepter (v0.2) for OculusVR SDK 0.4.x" Icon="icon.ico" ResizeMode="CanResize" Height="280" Width="Auto">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <!--<ColumnDefinition Width="Auto"/>-->
+            <ColumnDefinition Width="*"/>
+
+            <!--<ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="30*"/>-->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Width="100" Height="22" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_2">Instructions...</Button>
+        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Padding="0" Margin="12 3 10 0" VerticalAlignment="Top" FontWeight="Bold">Lens Separation:</TextBlock>
+        <StackPanel Name="RadioStackPanel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0 0 10">
+            <RadioButton Name="RadioNarrow" GroupName="Separation" Content="Narrowest (59.5mm)  -__-" Margin="5 5 5 5" VerticalAlignment="Center"></RadioButton>
+            <RadioButton Name="RadioWide" GroupName="Separation" Content="Widest (69.5mm)   o______O" Margin="5 5 5 5" VerticalAlignment="Center"></RadioButton>
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Name="RadioCustom" GroupName="Separation" Content="Custom" Margin="5 5 5 5" VerticalAlignment="Center"></RadioButton>
+                <xctk:DecimalUpDown GotFocus="DecimalUpDown_GotFocus_1" Width="60" Margin="0" VerticalAlignment="Center" Value="{Binding CustomValue, Mode=TwoWay}" ValueChanged="DecimalUpDown_ValueChanged_1"/>
+                <TextBlock Width="Auto" Margin="3" VerticalAlignment="Center">mm</TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Padding="0" Margin="12 0 10 0" VerticalAlignment="Center" FontWeight="Bold">Intercepter Status:</TextBlock>
+        <!--<Button Grid.Row="2" Grid.Column="2" Name="StartButton" Grid.ColumnSpan="1" FontSize="10" Padding="0" Margin="10 0 10 0" Height="30" VerticalAlignment="Center" Click="Button_Click_1">Hack the Planet</Button>-->
+        <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" FontSize="14" FontFamily="Courier New" Margin="10 0 10 0" Padding="0" VerticalAlignment="Center">Converting 63.5mm -> <Run Foreground="Red" Text="{Binding IntercepterStatus, FallbackValue='', Mode=TwoWay}"></Run></TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" FontSize="14" FontFamily="Courier New" Margin="10 0 10 0" Padding="0" VerticalAlignment="Center"><Run Text="{Binding IntercepterStatus2, FallbackValue='Intercepted messages: 0', Mode=TwoWay}"></Run></TextBlock>
+        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Horizontal">
+            <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" FontSize="14" FontFamily="Courier New" Margin="10 0 10 0" Padding="0" VerticalAlignment="Center"><Run Text="{Binding IntercepterStatus3, Mode=TwoWay}"></Run></TextBlock>
+            <TextBlock Name="BitcoinHelp"  Foreground="Blue" FontSize="14" VerticalAlignment="Center" FontFamily="Courier New" Visibility="{Binding BitcoinVisible, FallbackValue=Collapsed}" Margin="0 0 0 0" Padding="0"  PreviewMouseDown="BitcoinHelp_PreviewMouseDown_1" >(?)</TextBlock>
+        </StackPanel>
+        <!--<TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" FontSize="14" FontFamily="Courier New" Margin="10 0 10 0" Padding="0" VerticalAlignment="Center"><Run Text="{Binding IntercepterStatus4, Mode=TwoWay}"></Run></TextBlock>-->
+        <TextBlock Grid.Row="6" Grid.Column="0" FontWeight="Bold" Foreground="Red" TextWrapping="WrapWithOverflow" Grid.ColumnSpan="3" VerticalAlignment="Center" Text="{Binding ErrorText}"></TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="0" FontWeight="Normal" Grid.ColumnSpan="3" VerticalAlignment="Center">For more info visit the <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://www.vr-gear.com">VR-Gear Website</Hyperlink></TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="0" FontWeight="Normal" FontSize="10" Grid.ColumnSpan="3" VerticalAlignment="Center">Thanks to Stephen and <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="http://www.puckstar.com/oculus-rift-dk2/">Lukas</Hyperlink> for helping with this solution, and everyone for being so patient []-)</TextBlock>
+    </Grid>
+</Window>

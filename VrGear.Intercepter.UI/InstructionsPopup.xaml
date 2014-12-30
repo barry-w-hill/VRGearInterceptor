@@ -1,0 +1,16 @@
+﻿<Window x:Class="VrGear.Intercepter.UI.InstructionsPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Instructions" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight" Icon="icon.ico" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="20" Height="Auto">
+        <TextBlock Margin="0 10 10 10">Provided you are running the 0.4.2 runtime:</TextBlock>
+        <TextBlock Padding="0">1. Go to Task Manager -> Services -> OVRService -> <Span Foreground="Red">Stop</Span> Service.</TextBlock>
+        <TextBlock Padding="0">2. Browse to "C:\Program Files (x86)\Oculus\Service", backup the files so you can revert later.</TextBlock>
+        <TextBlock Padding="0">3. Copy the modified VR-Gear OVRServer_x64.exe (or x86) to the Oculus\Service folder, overwriting the originals.</TextBlock>
+        <TextBlock Padding="0">4. Go to Task Manager -> Services -> OVRService -> <Span Foreground="Blue">Start</Span> Service.</TextBlock>
+        <TextBlock Padding="0">5. Select the appropriate value for your Lens Separator attachments or enter a custom one. Set custom to 63.5 for regular setup.</TextBlock>
+        <TextBlock Padding="0">6. Start any Game / Demo using the 0.4.2 SDK to melt face off!</TextBlock>
+        <TextBlock Padding="0">7. Close the application to stop the Intercepter.</TextBlock>
+        <TextBlock Margin="0 10 10 10">Note: OVRServer, including the Util, will not work without the Intercepter running unless you revert to the original OVRServer files.</TextBlock>
+    </StackPanel>
+</Window>
